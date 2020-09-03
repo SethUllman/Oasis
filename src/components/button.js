@@ -1,21 +1,47 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native'
+import {Navigation} from 'react-native-navigation';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native'
 
 const Button = (props) => {
+
+  Navigation.registerComponent("GameScreen", () => {props.component});
+  console.log(props);
+
   return(
-    <View style={styles.view}>
-      <Text style={styles.text}>{props.text}</Text>
-    </View>
+    <TouchableOpacity
+      style={styles.touchable}
+      onPress={() => Navigation.push(props.componentId, {
+        component: {
+          name: 'GameScreen',
+          options: {
+            topBar: {
+              title: {
+                text: 'GameScreen'
+              }
+            }
+          }
+        }
+      })}
+    >
+      <View style={styles.view}>
+        <Text style={styles.text}>{props.text}</Text>
+      </View>
+    </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
-  view: {
+  touchable: {
     flex: 0.1,
+    width: "75%",
+    alignItems: "center"
+  },
+  view: {
+    flex: 1,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#4d089a",
-    width: "75%",
+    width: "100%",
     borderRadius: 10
   },
   text: {

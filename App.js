@@ -7,16 +7,35 @@
  */
 
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import Button from './src/components/button';
+import { Navigation } from 'react-native-navigation';
+import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
+import GameScreen from './src/components/gameScreen';
+
+Navigation.registerComponent('GameScreen', () => GameScreen)
 
 class App extends React.Component {
   render(){
     return (
       <View style={styles.home}>
-        <Button
+        <TouchableOpacity
           text="Click to Navigate"
-        />
+          onPress={() => Navigation.push(props.componentId, {
+            component: {
+              name: 'GameScreen',
+              options: {
+                topBar: {
+                  title: {
+                    text: 'GameScreen'
+                  }
+                }
+              }
+            }
+          })}
+        >
+          <View>
+            <Text>Start Game</Text>
+          </View>
+        </TouchableOpacity>
       </View>
     );
   }
