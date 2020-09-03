@@ -1,16 +1,20 @@
+const { Navigation } = require('react-native-navigation');
+const React = require('react');
+const { View, Text, Button, StyleSheet } = require('react-native');
+import HomeScreen from './src/components/home';
+import GameScreen from './src/components/gameScreen';
 
-import { Navigation } from 'react-native-navigation';
-import App from './App';
+Navigation.registerComponent('Home', () => HomeScreen);
+Navigation.registerComponent('Game', () => GameScreen);
 
-Navigation.registerComponent('Welcome', () => App)
-Navigation.events().registerAppLaunchedListener(() => {
+Navigation.events().registerAppLaunchedListener(async () => {
   Navigation.setRoot({
     root: {
       stack: {
         children: [
           {
             component: {
-              name: 'Welcome'
+              name: 'Home'
             }
           }
         ]
@@ -19,14 +23,11 @@ Navigation.events().registerAppLaunchedListener(() => {
   });
 });
 
-App.options = {
-  topBar: {
-    title: {
-      text: 'Home',
-      color: 'white'
-    },
-    background: {
-      color: '#4d089a'
-    }
+const styles = StyleSheet.create({
+  root: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'whitesmoke'
   }
-}
+});
