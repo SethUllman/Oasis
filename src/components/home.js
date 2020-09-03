@@ -10,6 +10,28 @@ const HomeScreen = (props) => {
 
   return (
     <View style={styles.root}>
+      <Text>Players: {players}</Text>
+      <View style={{flex: 0.1, width: "90%", flexDirection: "row", justifyContent: "space-between"}}>
+        <TouchableOpacity style={styles.players} onPress={() => {setPlayers(1)}}>
+          <Text style={styles.text}>1</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.players} onPress={() => {setPlayers(2)}}>
+          <Text style={styles.text}>2</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.players} onPress={() => {setPlayers(3)}}>
+          <Text style={styles.text}>3</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.players} onPress={() => {setPlayers(4)}}>
+          <Text style={styles.text}>4</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.players} onPress={() => {setPlayers(5)}}>
+          <Text style={styles.text}>5</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.players} onPress={() => { setPlayers(6) }}>
+          <Text style={styles.text}>6</Text>
+        </TouchableOpacity>
+      </View>
+
       <TouchableOpacity
         color='#710ce3'
         style={styles.button}
@@ -22,6 +44,9 @@ const HomeScreen = (props) => {
                   text: 'Game'
                 }
               }
+            },
+            passProps: {
+              players: players
             }
           }
         })} >
@@ -53,11 +78,23 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: '#4d089a',
-    width: "80%",
+    width: "90%",
     flex: 0.1,
     borderRadius: 10,
     justifyContent: "center",
     alignItems: "center"
+  },
+  players: {
+    width: 55,
+    height: 60,
+    backgroundColor: "#4d089a",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 10
+  },
+  text: {
+    color: "white",
+    fontSize: 24
   }
 });
 

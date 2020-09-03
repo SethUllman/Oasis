@@ -1,10 +1,12 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
-const GameScreen = () => {
+const GameScreen = (props) => {
+  console.log(props);
   return(
     <View style={styles.view}>
       <Text>Game Screen</Text>
+      <Text>{props.players}</Text>
     </View>
   );
 }
