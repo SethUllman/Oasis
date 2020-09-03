@@ -1,11 +1,18 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-import PlayerCounter from './playerCounter';
+import PlayerCounter1 from './playerConfigs/playerCounter1';
 
 const GameScreen = (props) => {
+
+  const GenerateScreens = () => {
+    if(props.players == 1){
+      return <PlayerCounter1 />
+    }
+  }
+
   return(
     <View style={styles.view}>
-      <PlayerCounter />
+      {GenerateScreens()}
     </View>
   );
 }

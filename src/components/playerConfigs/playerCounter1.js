@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 
-export default PlayerCounter = (props) => {
+export default PlayerCounter1 = (props) => {
 
   const [health, setHealth] = useState(20);
 
