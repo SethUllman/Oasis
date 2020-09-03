@@ -10,7 +10,7 @@ const HomeScreen = (props) => {
 
   return (
     <View style={styles.root}>
-      <Text>Players: {players}</Text>
+      <Text style={{flex: 0.1, justifyContent: "center", alignItems: "center", fontSize: 32}}>Players: {players}</Text>
       <View style={{flex: 0.1, width: "90%", flexDirection: "row", justifyContent: "space-between"}}>
         <TouchableOpacity style={styles.players} onPress={() => {setPlayers(1)}}>
           <Text style={styles.text}>1</Text>
@@ -64,7 +64,7 @@ HomeScreen.options = {
       color: 'white'
     },
     background: {
-      color: '#4d089a'
+      color: "rgba(196, 161, 100, 1)"
     }
   }
 };
@@ -74,10 +74,10 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'whitesmoke'
+    backgroundColor: 'rgba(202, 203, 165, 1)'
   },
   button: {
-    backgroundColor: '#4d089a',
+    backgroundColor: 'rgba(130, 68, 74, 1)',
     width: "90%",
     flex: 0.1,
     borderRadius: 10,
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
   players: {
     width: 55,
     height: 60,
-    backgroundColor: "#4d089a",
+    backgroundColor: "rgba(130, 68, 74, 1)",
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 10
