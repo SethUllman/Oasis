@@ -10,7 +10,7 @@ import React from 'react';
 import Home from './src/components/home';
 
 class App extends React.Component {
-  render(){
+  render() {
     return (
       <Home />
     );
