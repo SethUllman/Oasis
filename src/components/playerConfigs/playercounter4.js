@@ -1,20 +1,65 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
-export default PlayerCounter1 = (props) => {
+export default PlayerCounter4 = (props) => {
 
-  const [health, setHealth] = useState(20);
+  const [health1, setHealth1] = useState(20);
+  const [health2, setHealth2] = useState(20);
+  const [health3, setHealth3] = useState(20);
+  const [health4, setHealth4] = useState(20);
 
   return (
-    <View style={{ justifyContent: "center", alignItems: "center", backgroundColor: "rgba(196, 161, 100, 1)" }}>
-      <Text style={{ position: "absolute", margin: 0, fontSize: 150, zIndex: 0 }}>{health}</Text>
-      <View style={styles.view}>
-        <TouchableOpacity style={styles.touchableL} onPress={() => { setHealth(health - 1) }}>
-          <Text style={styles.text}>-</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.touchableR} onPress={() => { setHealth(health + 1) }}>
-          <Text style={styles.text}>+</Text>
-        </TouchableOpacity>
+    <View style={{flex: 1, flexDirection: "row"}}>
+      <View style={{ flex: 1, justifyContent: "space-around", borderRightWidth: 1 }}>
+        <View style={[styles.side2, { borderBottomWidth: 1 }]}>
+          <Text style={{ position: "absolute", margin: 0, fontSize: 150, zIndex: 0, transform: [{ rotate: "90deg" }] }}>{health1}</Text>
+          <View style={[styles.view, { transform: [{ rotate: "90deg" }] }]}>
+            <TouchableOpacity style={[styles.touchableL, { width: "100%" }]} onPress={() => { setHealth1(health1 - 1) }}>
+              <Text style={styles.text}>-</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={[styles.touchableR, { width: "100%" }]} onPress={() => { setHealth1(health1 + 1) }}>
+              <Text style={styles.text}>+</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+        <View style={styles.side2}>
+          <Text style={{ position: "absolute", margin: 0, fontSize: 150, zIndex: 0, transform: [{ rotate: "90deg" }] }}>{health2}</Text>
+          <View style={[styles.view, { transform: [{ rotate: "90deg" }] }]}>
+            <TouchableOpacity style={[styles.touchableL, { width: "100%" }]} onPress={() => { setHealth2(health2 - 1) }}>
+              <Text style={styles.text}>-</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={[styles.touchableR, { width: "100%" }]} onPress={() => { setHealth2(health2 + 1) }}>
+              <Text style={styles.text}>+</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </View>
+
+
+
+      <View style={{ flex: 1, justifyContent: "space-around" }}>
+        <View style={[styles.side2, { borderBottomWidth: 1 }]}>
+          <Text style={{ position: "absolute", margin: 0, fontSize: 150, zIndex: 0, transform: [{ rotate: "-90deg" }] }}>{health3}</Text>
+          <View style={[styles.view, { transform: [{ rotate: "-90deg" }] }]}>
+            <TouchableOpacity style={[styles.touchableL, { width: "100%" }]} onPress={() => { setHealth3(health3 - 1) }}>
+              <Text style={styles.text}>-</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={[styles.touchableR, { width: "100%" }]} onPress={() => { setHealth3(health3 + 1) }}>
+              <Text style={styles.text}>+</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+        <View style={styles.side2}>
+          <Text style={{ position: "absolute", margin: 0, fontSize: 150, zIndex: 0, transform: [{ rotate: "-90deg" }] }}>{health4}</Text>
+          <View style={[styles.view, { transform: [{ rotate: "-90deg" }] }]}>
+            <TouchableOpacity style={[styles.touchableL, { width: "100%" }]} onPress={() => { setHealth4(health4 - 1) }}>
+              <Text style={styles.text}>-</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={[styles.touchableR, { width: "100%" }]} onPress={() => { setHealth4(health4 + 1) }}>
+              <Text style={styles.text}>+</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
       </View>
     </View>
   );
@@ -22,15 +67,22 @@ export default PlayerCounter1 = (props) => {
 }
 
 const styles = StyleSheet.create({
+  side2: {
+    flex: 0.5,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(196, 161, 100, 1)",
+  },
   view: {
-    flex: 1,
+    flex: .5,
     flexDirection: "row"
   },
   touchableL: {
+    height: "100%",
     width: "50%",
     justifyContent: "center",
     alignItems: "flex-start",
-    zIndex: 1
+    zIndex: 1,
   },
   touchableR: {
     width: "50%",

@@ -3,6 +3,7 @@ import {View, Text, StyleSheet} from 'react-native';
 import PlayerCounter1 from './playerConfigs/playerCounter1';
 import PlayerCounter2 from './playerConfigs/playerCounter2';
 import PlayerCounter3 from './playerConfigs/playerCounter3';
+import PlayerCounter4 from './playerConfigs/playerCounter4';
 
 
 const GameScreen = (props) => {
@@ -14,6 +15,8 @@ const GameScreen = (props) => {
       return <PlayerCounter2 />
     } else if(props.players == 3){
       return <PlayerCounter3 />
+    } else if(props.players == 4){
+      return <PlayerCounter4 />
     }
   }
 
