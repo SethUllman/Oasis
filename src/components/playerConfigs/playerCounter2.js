@@ -8,7 +8,7 @@ export default PlayerCounter1 = (props) => {
 
   return (
     <View style={{flex: 1}}>
-      <View style={{ justifyContent: "center", alignItems: "center", backgroundColor: "rgba(196, 161, 100, 1)", transform: [{rotate: "180deg"}] }}>
+      <View style={{ justifyContent: "center", alignItems: "center", backgroundColor: "rgba(196, 161, 100, 1)", transform: [{rotate: "180deg"}], borderTopWidth: 1 }}>
         <Text style={{ position: "absolute", margin: 0, fontSize: 150, zIndex: 0}}>{health1}</Text>
         <View style={styles.view}>
           <TouchableOpacity style={styles.touchableL} onPress={() => { setHealth1(health1 - 1) }}>
