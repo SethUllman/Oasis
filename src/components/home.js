@@ -7,6 +7,7 @@ import { Navigation } from 'react-native-navigation';
 const HomeScreen = (props) => {
 
   const [players, setPlayers] = useState(1);
+  const [health, setHealth] = useState(20);
 
   return (
     <View style={styles.root}>
@@ -32,6 +33,23 @@ const HomeScreen = (props) => {
         </TouchableOpacity>
       </View>
 
+      <Text style={{ flex: 0.1, justifyContent: "center", alignItems: "center", fontSize: 32 }}>Starting Health: {health}</Text>
+      <View style={{ flex: 0.1, width: "90%", flexDirection: "row", justifyContent: "space-between" }}>
+        <TouchableOpacity style={styles.health} onPress={() => { setHealth(20) }}>
+          <Text style={styles.text}>20</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.health} onPress={() => { setHealth(30) }}>
+          <Text style={styles.text}>30</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.health} onPress={() => { setHealth(40) }}>
+          <Text style={styles.text}>40</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.health} onPress={() => { setHealth(4) }}>
+          <Text style={styles.text}>Custom</Text>
+        </TouchableOpacity>
+      </View>
+      
+
       <TouchableOpacity
         color='#710ce3'
         style={styles.button}
@@ -46,7 +64,8 @@ const HomeScreen = (props) => {
               }
             },
             passProps: {
-              players: players
+              players: players,
+              health: health
             }
           }
         })} >
@@ -64,7 +83,8 @@ HomeScreen.options = {
       color: 'white'
     },
     background: {
-      color: "rgba(196, 161, 100, 1)"
+      color: "rgba(81, 82, 87, 1)",
+      // color: "#1b96b6"
     }
   }
 };
@@ -74,7 +94,8 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'rgba(202, 203, 165, 1)'
+    // backgroundColor: 'rgba(202, 203, 165, 1)'
+    backgroundColor: "rgba(196, 161, 100, 1)"
   },
   button: {
     backgroundColor: 'rgba(130, 68, 74, 1)',
@@ -86,6 +107,14 @@ const styles = StyleSheet.create({
   },
   players: {
     width: 55,
+    height: 60,
+    backgroundColor: "rgba(130, 68, 74, 1)",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 10
+  },
+  health: {
+    width: 90,
     height: 60,
     backgroundColor: "rgba(130, 68, 74, 1)",
     justifyContent: "center",

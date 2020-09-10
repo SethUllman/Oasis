@@ -3,7 +3,7 @@ import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 
 export default PlayerCounter1 = (props) => {
 
-  const [health, setHealth] = useState(20);
+  const [health, setHealth] = useState(props.health);
 
   return(
     <View style={{justifyContent: "center", alignItems: "center", backgroundColor: "rgba(196, 161, 100, 1)"}}>

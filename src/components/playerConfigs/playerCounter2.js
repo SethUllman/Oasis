@@ -3,8 +3,8 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
 export default PlayerCounter1 = (props) => {
 
-  const [health1, setHealth1] = useState(20);
-  const [health2, setHealth2] = useState(20);
+  const [health1, setHealth1] = useState(props.health);
+  const [health2, setHealth2] = useState(props.health);
 
   return (
     <View style={{flex: 1}}>

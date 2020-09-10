@@ -3,10 +3,10 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
 export default PlayerCounter4 = (props) => {
 
-  const [health1, setHealth1] = useState(20);
-  const [health2, setHealth2] = useState(20);
-  const [health3, setHealth3] = useState(20);
-  const [health4, setHealth4] = useState(20);
+  const [health1, setHealth1] = useState(props.health);
+  const [health2, setHealth2] = useState(props.health);
+  const [health3, setHealth3] = useState(props.health);
+  const [health4, setHealth4] = useState(props.health);
 
   return (
     <View style={{flex: 1, flexDirection: "row"}}>
