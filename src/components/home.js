@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import { View, Text, Button, TouchableOpacity, StyleSheet, Modal, TextInput } from 'react-native';
 import { Navigation } from 'react-native-navigation';
 import LinearGradient from 'react-native-linear-gradient';
-import DoneBar from 'done-bar';
 
 
 // Home screen declaration
@@ -35,7 +34,7 @@ const HomeScreen = (props) => {
                 value={customHealth}
                 maxLength={3}
                 blurOnSubmit={true}
-                
+                returnKeyType="done"
               />
             </View>
             <LinearGradient
@@ -57,9 +56,6 @@ const HomeScreen = (props) => {
            
           </View>
         </View>
-        <DoneBar
-          keyboardType={'numeric'}
-        />
       </Modal>
       <LinearGradient 
         style={[styles.root, {width: "100%"}]}
