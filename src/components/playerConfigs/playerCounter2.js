@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 
 export default PlayerCounter1 = (props) => {
 
@@ -8,8 +9,11 @@ export default PlayerCounter1 = (props) => {
 
   return (
     <View style={{flex: 1}}>
-      <View style={{ justifyContent: "center", alignItems: "center", backgroundColor: "rgba(196, 161, 100, 1)", transform: [{rotate: "180deg"}], borderTopWidth: 1 }}>
-        <Text style={{ position: "absolute", margin: 0, fontSize: 150, zIndex: 0}}>{health1}</Text>
+      <LinearGradient
+        style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
+        colors={["#060037", "#00809B"]}>
+      <View style={{ justifyContent: "center", alignItems: "center", transform: [{rotate: "180deg"}], borderTopWidth: 1, borderColor: "white" }}>
+        <Text style={{ position: "absolute", margin: 0, fontSize: 150, zIndex: 0, color: "white"}}>{health1}</Text>
         <View style={styles.view}>
           <TouchableOpacity style={styles.touchableL} onPress={() => { setHealth1(health1 - 1) }}>
             <Text style={styles.text}>-</Text>
@@ -19,8 +23,8 @@ export default PlayerCounter1 = (props) => {
           </TouchableOpacity>
         </View>
       </View>
-      <View style={{ justifyContent: "center", alignItems: "center", backgroundColor: "rgba(196, 161, 100, 1)" }}>
-        <Text style={{ position: "absolute", margin: 0, fontSize: 150, zIndex: 0 }}>{health2}</Text>
+      <View style={{ justifyContent: "center", alignItems: "center" }}>
+        <Text style={{ position: "absolute", margin: 0, fontSize: 150, zIndex: 0, color: "white" }}>{health2}</Text>
         <View style={styles.view}>
           <TouchableOpacity style={styles.touchableL} onPress={() => { setHealth2(health2 - 1) }}>
             <Text style={styles.text}>-</Text>
@@ -30,6 +34,7 @@ export default PlayerCounter1 = (props) => {
           </TouchableOpacity>
         </View>
       </View>
+      </LinearGradient>
     </View>
   );
 
@@ -38,7 +43,7 @@ export default PlayerCounter1 = (props) => {
 const styles = StyleSheet.create({
   view: {
     flex: .5,
-    flexDirection: "row"
+    flexDirection: "row",
   },
   touchableL: {
     height: "100%",
@@ -55,7 +60,8 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 38,
-    margin: 30
+    margin: 30,
+    color: "white"
   }
 })
 

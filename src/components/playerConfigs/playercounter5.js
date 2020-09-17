@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 
 export default PlayerCounter5 = (props) => {
 
@@ -11,9 +12,12 @@ export default PlayerCounter5 = (props) => {
 
   return (
     <View style={{ flex: 1, flexDirection: "row" }}>
+      <LinearGradient
+        style={{ flex: 1, flexDirection: "row" }}
+        colors={["#060037", "#00809B"]}>
       <View style={{ flex: 1, justifyContent: "space-around", borderRightWidth: 1 }}>
         <View style={[styles.side1, { borderBottomWidth: 1 }]}>
-          <Text style={{ position: "absolute", margin: 0, fontSize: 100, zIndex: 0, transform: [{ rotate: "90deg" }] }}>{health1}</Text>
+          <Text style={{ position: "absolute", margin: 0, fontSize: 100, zIndex: 0, transform: [{ rotate: "90deg" }], color: "white" }}>{health1}</Text>
           <View style={[styles.view, { transform: [{ rotate: "90deg" }] }]}>
             <TouchableOpacity style={[styles.touchableL, { width: "100%" }]} onPress={() => { setHealth1(health1 - 1) }}>
               <Text style={styles.text}>-</Text>
@@ -24,7 +28,7 @@ export default PlayerCounter5 = (props) => {
           </View>
         </View>
         <View style={styles.side1}>
-          <Text style={{ position: "absolute", margin: 0, fontSize: 100, zIndex: 0, transform: [{ rotate: "90deg" }] }}>{health2}</Text>
+          <Text style={{ position: "absolute", margin: 0, fontSize: 100, zIndex: 0, transform: [{ rotate: "90deg" }], color: "white" }}>{health2}</Text>
           <View style={[styles.view, { transform: [{ rotate: "90deg" }] }]}>
             <TouchableOpacity style={[styles.touchableL, { width: "100%" }]} onPress={() => { setHealth2(health2 - 1) }}>
               <Text style={styles.text}>-</Text>
@@ -41,7 +45,7 @@ export default PlayerCounter5 = (props) => {
       <View style={{ flex: 1, justifyContent: "space-around" }}>
 
         <View style={[styles.side2, { borderBottomWidth: 1 }]}>
-          <Text style={{ position: "absolute", margin: 0, fontSize: 100, zIndex: 0, transform: [{ rotate: "-90deg" }] }}>{health3}</Text>
+          <Text style={{ position: "absolute", margin: 0, fontSize: 100, zIndex: 0, transform: [{ rotate: "-90deg" }], color: "white" }}>{health3}</Text>
           <View style={[styles.view2, { transform: [{ rotate: "-90deg" }] }]}>
             <TouchableOpacity style={[styles.touchableL, { width: "66.666%" }]} onPress={() => { setHealth3(health3 - 1) }}>
               <Text style={styles.text}>-</Text>
@@ -53,7 +57,7 @@ export default PlayerCounter5 = (props) => {
         </View>
 
         <View style={[styles.side2, { borderBottomWidth: 1 }]}>
-          <Text style={{ position: "absolute", margin: 0, fontSize: 100, zIndex: 0, transform: [{ rotate: "-90deg" }] }}>{health4}</Text>
+          <Text style={{ position: "absolute", margin: 0, fontSize: 100, zIndex: 0, transform: [{ rotate: "-90deg" }], color: "white" }}>{health4}</Text>
           <View style={[styles.view2, { transform: [{ rotate: "-90deg" }]}]}>
             <TouchableOpacity style={[styles.touchableL, { width: "66.666%"}]} onPress={() => { setHealth4(health4 - 1) }}>
               <Text style={styles.text}>-</Text>
@@ -65,7 +69,7 @@ export default PlayerCounter5 = (props) => {
         </View>
 
         <View style={styles.side2}>
-          <Text style={{ position: "absolute", margin: 0, fontSize: 100, zIndex: 0, transform: [{ rotate: "-90deg" }] }}>{health5}</Text>
+          <Text style={{ position: "absolute", margin: 0, fontSize: 100, zIndex: 0, transform: [{ rotate: "-90deg" }], color: "white" }}>{health5}</Text>
           <View style={[styles.view2, { transform: [{ rotate: "-90deg" }]}]}>
             <TouchableOpacity style={[styles.touchableL, { width: "66.666%" }]} onPress={() => { setHealth5(health5 - 1) }}>
               <Text style={styles.text}>-</Text>
@@ -77,6 +81,7 @@ export default PlayerCounter5 = (props) => {
         </View>
 
       </View>
+      </LinearGradient>
     </View>
   );
 
@@ -87,13 +92,11 @@ const styles = StyleSheet.create({
     flex: 0.5,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "rgba(196, 161, 100, 1)",
   },
   side2: {
     flex: 0.5,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "rgba(196, 161, 100, 1)",
   },
   view: {
     flex: .51,
@@ -117,7 +120,8 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 38,
-    margin: 30
+    margin: 30,
+    color: "white"
   }
 })
 

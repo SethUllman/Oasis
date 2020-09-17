@@ -33,6 +33,19 @@ const GameScreen = (props) => {
   );
 }
 
+GameScreen.options = {
+  topBar: {
+    title: {
+      text: 'Home',
+      color: 'white'
+    },
+    background: {
+      color: "#370101",
+      // color: "#1b96b6"
+    }
+  }
+};
+
 const styles = StyleSheet.create({
   view: {
     flex: 1,

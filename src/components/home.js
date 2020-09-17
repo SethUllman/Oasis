@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
-import { View, Text, Button, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, Button, TouchableOpacity, StyleSheet, Modal, TextInput } from 'react-native';
 import { Navigation } from 'react-native-navigation';
 import LinearGradient from 'react-native-linear-gradient';
+import DoneBar from 'done-bar';
 
 
 // Home screen declaration
@@ -9,9 +10,57 @@ const HomeScreen = (props) => {
 
   const [players, setPlayers] = useState(1);
   const [health, setHealth] = useState(20);
+  const [modalVisible, setModalVisible] = useState(false);
+  const [customHealth, setCustomHealth] = useState("20");
 
   return (
     <View style={styles.root}>
+      <Modal 
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          alert.alert("modal has been closed.");
+        }}
+      >
+        <View style={styles.root}>
+          <View style={styles.modalView}>
+            <Text style={{fontSize: 24}}>Input Custom Health</Text>
+            <View style={styles.input}>
+              <TextInput 
+                style={{fontSize: 32}}
+                placeholder="Custom Health"
+                keyboardType="numeric"
+                onChangeText={(e) => setCustomHealth(e)}
+                value={customHealth}
+                maxLength={3}
+                blurOnSubmit={true}
+                
+              />
+            </View>
+            <LinearGradient
+              style={{flex: 0.3, justifyContent: "center", alignItems: "center", width: "75%", borderRadius: 10}}
+              colors={["#060037", "#00809B"]}>
+              <TouchableOpacity
+                style={{width: "100%", flex: 0.3}}
+                onPress={() => {
+                  setHealth(customHealth);
+                  setModalVisible(false);
+                }}
+              >
+                <View style={{justifyContent: "center", alignItems: "center"}}>
+                  <Text style={{color: "white", fontSize: 18}}>Submit</Text>
+                </View>
+              </TouchableOpacity>
+            </LinearGradient>
+
+           
+          </View>
+        </View>
+        <DoneBar
+          keyboardType={'numeric'}
+        />
+      </Modal>
       <LinearGradient 
         style={[styles.root, {width: "100%"}]}
         colors={["#FE8963", "#D53249"]}>
@@ -48,7 +97,7 @@ const HomeScreen = (props) => {
           <TouchableOpacity style={[styles.health, { backgroundColor: health == 40 ? "rgba(55, 1, 1, 1.0)" : "rgba(55, 1, 1, 0.6)" }]} onPress={() => { setHealth(40) }}>
             <Text style={styles.text}>40</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={[styles.health, { backgroundColor: (health != 20 && health != 30 && health != 40) ? "rgba(55, 1, 1, 1.0)" : "rgba(55, 1, 1, 0.6)" }]} onPress={() => { setHealth(4) }}>
+          <TouchableOpacity style={[styles.health, { backgroundColor: (health != 20 && health != 30 && health != 40) ? "rgba(55, 1, 1, 1.0)" : "rgba(55, 1, 1, 0.6)" }]} onPress={() => { setModalVisible(true) }}>
             <Text style={styles.text}>Custom</Text>
           </TouchableOpacity>
       </View>
@@ -89,7 +138,6 @@ HomeScreen.options = {
     },
     background: {
       color: "#370101",
-      // color: "#1b96b6"
     }
   }
 };
@@ -99,8 +147,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    // backgroundColor: 'rgba(202, 203, 165, 1)'
-    // backgroundColor: "rgba(196, 161, 100, 1)"
   },
   button: {
     backgroundColor: 'rgba(55, 1, 1, 1.0)',
@@ -129,6 +175,33 @@ const styles = StyleSheet.create({
   text: {
     color: "white",
     fontSize: 24
+  },
+  modalView: {
+    flex: 0.3,
+    backgroundColor: "white",
+    borderRadius: 20,
+    width: "75%",
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  input: {
+    borderWidth: 1,
+    borderRadius: 10,
+    width: "75%",
+    flex: 0.3,
+    justifyContent: "center",
+    alignItems: "center",
+    fontSize: 18,
+    margin: 20
   }
 });
 
